@@ -36,7 +36,7 @@ module MultipleTableInheritance
         
         def parent_association_class
           @parent_association_class ||= begin
-	    parent_association_name = "web/user_activity" if parent_association_name = 'web_user_activity'
+	    parent_association_name = "web/user_activity" if parent_association_name.eql?('web_user_activity')
             reflection = create_reflection(:belongs_to, parent_association_name, {}, self)
             reflection.klass
           end
